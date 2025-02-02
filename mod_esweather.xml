@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.0" client="site" method="upgrade">
+    <name>氣象/空氣品質</name>
+    <author>Shawn</author>
+    <creationDate>2021-11-12</creationDate>
+    <copyright>Copyright (C) 2012 Shawn.idv</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>ask@shawnchiu.idv</authorEmail>
+    <authorUrl>https://shawnchiu.idv</authorUrl>
+    <version>1.1</version>
+    <description>MOD_ESWEATHER_INSTALL_DESC</description>
+    <scriptfile>install.php</scriptfile>
+    <!-- moduleESWEATHER now has no sql file
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.sql</file>
+          </sql>
+    </install>
+    
+    
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.sql</file>
+          </sql>
+    </uninstall>
+    -->
+    <files>
+        <filename module="mod_esweather">mod_esweather.php</filename>
+        <folder>tmpl</folder>
+        <folder>language</folder>
+        <filename>index.html</filename>
+        <filename>mod_esweather.xml</filename>
+        <filename>helper.php</filename>
+        <filename>install.php</filename>
+    </files>
+
+    <help key="JHELP_EXTENSIONS_MODULE_MANAGER_FOOTER" />
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="order_dir"
+                    type="list"
+                    label="JFIELD_ORDERING_LABEL"
+                    description="JFIELD_ORDERING_DESC"
+                    default="DESC"
+                >
+                    <option value="ASC">MOD_ESWEATHER_ORDER_DIR_ASC</option>
+                    <option value="DESC">MOD_ESWEATHER_ORDER_DIR_DESC</option>
+                </field>
+            </fieldset>
+            <fieldset name="advanced">
+                <field
+                    name="cachemode"
+                    type="hidden"
+                    default="static"
+                >
+                    <option value="static"></option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+
+    <updateservers>
+        <!--<server type="collection">http:s//esweather.com/list.xml</server>-->
+        <server type="extension" priority="1" name="Shawn esweather Module">https://update.shawnchiu.idv/module/mod_esweather.xml
+</server>
+    </updateservers>
+
+</extension>
